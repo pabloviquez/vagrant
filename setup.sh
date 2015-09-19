@@ -14,16 +14,23 @@ echo "--"
 echo "--"
 echo "------------------------------------------------------------------------------"
 
+
 if [ ! -d ~/provision ]; then
+	echo ""
+	echo ""
+	echo ""
+	echo "Initializing..."
 	sudo apt-get update
 	sudo apt-get install -y -V git
 	ssh -oStrictHostKeyChecking=no -T git@github.com
 fi
 
+echo "Cloning remote provisioning"
 rm -Rf ~/provision
 git clone git://github.com/pabloviquez/vagrant.git ~/provision
 
 if [ -d ~/provision ]; then
+	echo "Setting up dependencies"
 	cd ~/provision
 	source base/install.sh
 	source apache/install.sh
