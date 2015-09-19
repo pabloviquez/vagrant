@@ -7,7 +7,8 @@
 install_apache()
 {
 	echo "Adding Apache2 repository"
-	sudo apt-add-repository ppa:ptn107/apache
+	# sudo apt-add-repository ppa:ptn107/apache
+	sudo add-apt-repository ppa:ondrej/apache2
 	sudo apt-get update
 
 	echo "Installing Apache2"

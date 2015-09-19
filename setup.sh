@@ -8,3 +8,4 @@
 source base/install.sh
 source apache/install.sh
 source php/install.sh
+source mysql/install.sh
