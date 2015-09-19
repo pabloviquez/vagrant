@@ -17,11 +17,14 @@ install_base_a()
 install_base_b()
 {
 	# Get config files
-	# git@github.com:pabloviquez/mydotfiles.git
+	git clone git@github.com:pabloviquez/mydotfiles.git ~/.mydotfiles
+	cp ~/.mydotfiles/.vimrc ~
+	cp ~/.mydotfiles/.screenrc ~
 }
 
 CMDA=$(screen -v 2>&1)
 if [[ $CMDA != *"Screen version"* ]]
 then
 	install_base_a
+	install_base_b
 fi
