@@ -17,7 +17,7 @@ install_base_a()
 install_base_b()
 {
 	# Get config files
-	git clone git@github.com:pabloviquez/mydotfiles.git ~/.mydotfiles
+	git clone git://github.com/pabloviquez/mydotfiles.git ~/.mydotfiles
 	cp ~/.mydotfiles/.vimrc ~
 	cp ~/.mydotfiles/.screenrc ~
 }

@@ -17,7 +17,8 @@ echo "--------------------------------------------------------------------------
 if [ ! -d ~/provision ]; then
 	sudo apt-get update
 	sudo apt-get install -y -V git
-	git clone git@github.com:pabloviquez/vagrant.git ~/provision
+	ssh -oStrictHostKeyChecking=no -T git@github.com
+	git clone git://github.com/pabloviquez/vagrant.git
 fi
 
 if [ -d ~/provision ]; then
