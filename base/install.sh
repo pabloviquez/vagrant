@@ -5,6 +5,12 @@
 
 install_base_a()
 {
+	echo "----------------------------------------------------------------------"
+	echo "--"
+	echo "-- Installing Base Packages"
+	echo "--"
+	echo "----------------------------------------------------------------------"
+
 	echo "Installing Base A"
 	apt-get update
 
@@ -16,6 +22,12 @@ install_base_a()
 
 install_base_b()
 {
+	echo "----------------------------------------------------------------------"
+	echo "--"
+	echo "-- Creating Config Files"
+	echo "--"
+	echo "----------------------------------------------------------------------"
+
 	# Get config files
 	git clone git://github.com/pabloviquez/mydotfiles.git /home/vagrant/.mydotfiles
 	chown -R vagrant:vagrant /home/vagrant/.mydotfiles

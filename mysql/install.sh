@@ -5,7 +5,15 @@
 
 install_mysql56()
 {
-	echo "Installing MySQL 5.6"
+	echo "----------------------------------------------------------------------"
+	echo "--"
+	echo "-- Installing MySQL 5.6"
+	echo "--"
+	echo "--"
+	echo "-- Default password: 123456"
+	echo "----------------------------------------------------------------------"
+	echo ""
+
 	add-apt-repository ppa:ondrej/mysql-5.6
 	apt-get update
 
@@ -17,7 +25,17 @@ install_mysql56()
 
 install_configfiles()
 {
-	echo "Setting up MySQL Configurations Files."
+	echo "----------------------------------------------------------------------"
+	echo "--"
+	echo "-- Setting up MySQL Configurations Files"
+	echo "--"
+	echo "-- Files:"
+	echo "--       /etc/mysql/conf.d/utf8.cnf"
+	echo "--       /etc/mysql/conf.d/slowquery.cnf"
+	echo "--"
+	echo "----------------------------------------------------------------------"
+
+	echo ""
 	echo ""
 	echo "Setting All Connections to UTF-8"
 	#

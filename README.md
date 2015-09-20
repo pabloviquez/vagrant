@@ -58,8 +58,8 @@ Simple, I created this repository to have a simple provisioning standard setup s
 		<li>Set default connection &amp; database charset: <strong>UTF-8</strong><br><pre>/etc/mysql/conf.d/utf8.cnf</pre></li>
 		<li>Created Slow query log configuration file. Log to TABLE and disabled by default<br><pre>/etc/mysql/conf.d/slowquery.cnf</pre></li>
 	</ul>
-
 </ul>
 
+An additional Repository will be installed for dot configuration files. https://github.com/pabloviquez/mydotfiles
 
 

@@ -11,9 +11,10 @@ echo "--------------------------------------------------------------------------
 echo "--"
 echo "-- Ubuntu Provision Script"
 echo "--"
-echo "--"
+echo "-- @author Pablo Viquez <pviquez@pabloviquez.com>"
+echo "-- @version 1.0.0"
 echo "------------------------------------------------------------------------------"
-
+echo ""
 
 if [ ! -d ~/provision ]; then
 	echo ""
