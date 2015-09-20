@@ -55,8 +55,8 @@ Simple, I created this repository to have a simple provisioning standard setup s
 	<li>MySQL 5.6.x</li>
 	<ul>
 		<li>Default Password: <strong>123456</strong></li>
-		<li>Set default connection &amp; database charset: <strong>UTF-8</strong></li>
-		<li>Created Slow query log configuration file. Log to TABLE and disabled by default</li>
+		<li>Set default connection &amp; database charset: <strong>UTF-8</strong><br><pre>/etc/mysql/conf.d/utf8.cnf</pre></li>
+		<li>Created Slow query log configuration file. Log to TABLE and disabled by default<br><pre>/etc/mysql/conf.d/slowquery.cnf</pre></li>
 	</ul>
 
 </ul>
