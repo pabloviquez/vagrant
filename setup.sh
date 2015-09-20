@@ -20,8 +20,8 @@ if [ ! -d ~/provision ]; then
 	echo ""
 	echo ""
 	echo "Initializing..."
-	sudo apt-get update
-	sudo apt-get install -y -V git
+	apt-get update
+	apt-get install -y -V git
 	ssh -oStrictHostKeyChecking=no -T git@github.com
 fi
 

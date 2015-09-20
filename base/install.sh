@@ -6,20 +6,21 @@
 install_base_a()
 {
 	echo "Installing Base A"
-	sudo apt-get update
+	apt-get update
 
-	sudo apt-get install -y -V git
-	sudo apt-get install -y -V screen curl vim exuberant-ctags zip libldap-2.4-2 ldap-utils
-	sudo apt-get install -y -V python-software-properties subversion
-	sudo apt-get install -y -V openjdk-6-jdk
+	apt-get install -y -V git
+	apt-get install -y -V screen curl vim exuberant-ctags zip libldap-2.4-2 ldap-utils
+	apt-get install -y -V python-software-properties subversion
+	apt-get install -y -V openjdk-6-jdk
 }
 
 install_base_b()
 {
 	# Get config files
-	git clone git://github.com/pabloviquez/mydotfiles.git ~/.mydotfiles
-	cp ~/.mydotfiles/.vimrc ~
-	cp ~/.mydotfiles/.screenrc ~
+	git clone git://github.com/pabloviquez/mydotfiles.git /home/vagrant/.mydotfiles
+	chown -R vagrant:vagrant /home/vagrant/.mydotfiles
+	cp /home/vagrant/.mydotfiles/.vimrc /home/vagrant/
+	cp /home/vagrant/.mydotfiles/.screenrc /home/vagrant/
 }
 
 CMDA=$(screen -v 2>&1)
