@@ -8,6 +8,10 @@ install_mysql56()
 	echo "Installing MySQL 5.6"
 	sudo add-apt-repository ppa:ondrej/mysql-5.6
 	sudo apt-get update
+
+	# Set default password
+	sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password 123456'
+	sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password 123456'
 	sudo apt-get -y -V install mysql-server mysql-common mysql-client-5.6
 }
 
