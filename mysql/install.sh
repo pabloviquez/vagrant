@@ -20,7 +20,7 @@ install_mysql56()
 	# Set default password
 	debconf-set-selections <<< 'mysql-server mysql-server/root_password password 123456'
 	debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password 123456'
-	apt-get -y -V install mysql-server mysql-common mysql-client-5.6
+	apt-get -y -V install mysql-server mysql-common
 }
 
 install_configfiles()
