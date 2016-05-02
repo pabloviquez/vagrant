@@ -11,7 +11,7 @@ install_php56()
 
   apt-get -y -V install php5
   apt-get -y -V install php5-dev
-  apt-get -y -V install php5-cli php-pear php5-apcu php5-curl php5-memcache php5-memcached php-gettext php5-gd php5-ldap php5-imagick php5-mcrypt php5-mysqlnd phpunit php5-xdebug
+  apt-get -y -V install php5-cli php-pear php5-intl php5-sybase php5-apcu php5-curl php5-memcache php5-memcached php-gettext php5-gd php5-ldap php5-imagick php5-mcrypt php5-mysqlnd phpunit php5-xdebug
 
   pear channel-update
 }
