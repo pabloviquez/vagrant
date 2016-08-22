@@ -6,7 +6,7 @@
 install_php56()
 {
   echo "Adding PHP 5.6 Repository"
-  add-apt-repository ppa:ondrej/php5-5.6
+  add-apt-repository ppa:ondrej/php
   apt-get update
 
   apt-get -y -V install php5
