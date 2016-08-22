@@ -3,6 +3,27 @@
 # -- MySQL
 # -----------------------------------------------------------------------------
 
+install_mysql57()
+{
+  echo "----------------------------------------------------------------------"
+  echo "--"
+  echo "-- Installing MySQL 5.7"
+  echo "--"
+  echo "--"
+  echo "-- Default password: 123456"
+  echo "----------------------------------------------------------------------"
+  echo ""
+
+  wget http://dev.mysql.com/get/mysql-apt-config_0.7.3-1_all.deb
+  dpkg -i mysql-apt-config_0.7.3-1_all.deb
+  apt-get update
+
+  # Set default password
+  debconf-set-selections <<< 'mysql-server mysql-server/root_password password 123456'
+  debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password 123456'
+  apt-get -y -V install mysql-server mysql-client
+}
+
 install_mysql56()
 {
   echo "----------------------------------------------------------------------"
@@ -72,6 +93,6 @@ install_configfiles()
 CMDA=$(mysql --help 2>&1)
 if [[ $CMDA != *"Distrib 5.6"* ]]
 then
-  install_mysql56
+  install_mysql57
   install_configfiles
 fi
