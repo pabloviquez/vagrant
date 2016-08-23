@@ -21,6 +21,7 @@ install_mysql57()
   debconf-set-selections <<< 'mysql-apt-config mysql-apt-config/select-server select mysql-5.7'
   debconf-set-selections <<< 'mysql-apt-config mysql-apt-config/select-product select Apply'
 
+  export DEBIAN_FRONTEND=noninteractive
   wget http://dev.mysql.com/get/mysql-apt-config_0.7.3-1_all.deb
   # dpkg -i mysql-apt-config_0.7.3-1_all.deb
   dpkg --install mysql-apt-config_0.7.3-1_all.deb
