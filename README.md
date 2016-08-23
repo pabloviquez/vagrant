@@ -6,7 +6,7 @@ Add the RAW setup script to the Vagrantfile as provision
 
 ```
 Vagrant.configure("2") do |config|
-  config.vm.provision "shell", path: "https://raw.githubusercontent.com/pabloviquez/vagrant/master/setup.sh"
+  config.vm.provision "shell", path: "https://raw.githubusercontent.com/pabloviquez/vagrant/1.1.5/setup.sh"
 end
 ```
 
