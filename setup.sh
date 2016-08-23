@@ -12,7 +12,7 @@ echo "--"
 echo "-- Ubuntu Provision Script"
 echo "--"
 echo "-- @author Pablo Viquez <pviquez@pabloviquez.com>"
-echo "-- @version 1.1.3"
+echo "-- @version 1.1.4"
 echo "------------------------------------------------------------------------------"
 echo ""
 
@@ -29,7 +29,7 @@ fi
 echo "Cloning remote provisioning"
 rm -Rf ~/provision
 # git clone https://github.com/pabloviquez/vagrant.git ~/provision
-git clone --branch 1.1.3 https://github.com/pabloviquez/vagrant.git
+git clone --branch 1.1.3 https://github.com/pabloviquez/vagrant.git ~/provision
 
 if [ -d ~/provision ]; then
   echo "Setting up dependencies"
