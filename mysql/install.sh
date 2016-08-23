@@ -14,13 +14,22 @@ install_mysql57()
   echo "----------------------------------------------------------------------"
   echo ""
 
+  apt-get install -y -V  debconf-utils
+
+  debconf-set-selections <<< 'mysql-apt-config mysql-apt-config/select-tools select'
+  debconf-set-selections <<< 'mysql-apt-config mysql-apt-config/repo-distro select ubuntu'
+  debconf-set-selections <<< 'mysql-apt-config mysql-apt-config/select-server select mysql-5.7'
+  debconf-set-selections <<< 'mysql-apt-config mysql-apt-config/select-product select Apply'
+
   wget http://dev.mysql.com/get/mysql-apt-config_0.7.3-1_all.deb
-  dpkg -i mysql-apt-config_0.7.3-1_all.deb
+  # dpkg -i mysql-apt-config_0.7.3-1_all.deb
+  dpkg --install mysql-apt-config_0.7.3-1_all.deb
   apt-get update
 
   # Set default password
   debconf-set-selections <<< 'mysql-server mysql-server/root_password password 123456'
   debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password 123456'
+
   apt-get -y -V install mysql-server mysql-client
 }
 
@@ -91,7 +100,7 @@ install_configfiles()
 }
 
 CMDA=$(mysql --help 2>&1)
-if [[ $CMDA != *"Distrib 5.6"* ]]
+if [[ $CMDA != *"Distrib 5.7"* ]]
 then
   install_mysql57
   install_configfiles
