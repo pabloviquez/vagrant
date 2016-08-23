@@ -31,6 +31,9 @@ install_mysql57()
   debconf-set-selections <<< 'mysql-server mysql-server/root_password password 123456'
   debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password 123456'
 
+  debconf-set-selections <<< 'mysql-community-server mysql-community-server/root-pass password 123456'
+  debconf-set-selections <<< 'mysql-community-server mysql-community-server/re-root-pass password 123456'
+
   apt-get -y -V install mysql-server mysql-client
 }
 
