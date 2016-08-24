@@ -11,8 +11,8 @@ install_apache()
   echo "-- Adding Apache2.4 repository"
   echo "--"
   echo "----------------------------------------------------------------------"
-  apt-add-repository ppa:ptn107/apache
-  #add-apt-repository ppa:ondrej/apache2
+  #apt-add-repository ppa:ptn107/apache
+  add-apt-repository ppa:ondrej/apache2
   apt-get update
 
   echo "----------------------------------------------------------------------"
