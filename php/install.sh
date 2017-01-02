@@ -18,7 +18,7 @@ install_php56()
 
 install_php70()
 {
-  echo "Adding PHP 7.0 Repository"
+  echo "Adding PHP 7.x Repository"
   add-apt-repository ppa:ondrej/php
   apt-get update
 
@@ -27,6 +27,17 @@ install_php70()
   apt-get -y -V install php7.0-cli php7.0-curl php7.0-soap php-pear php7.0-intl php7.0-sybase php7.0-apcu php7.0-curl php7.0-memcache php7.0-memcached php-gettext php7.0-gd php7.0-ldap php7.0-imagick php7.0-mcrypt php7.0-mysqlnd phpunit php7.0-xdebug
 
   pear update-channels
+}
+
+install_php71()
+{
+  echo "Adding PHP 7.x Repository"
+  add-apt-repository ppa:ondrej/php
+  apt-get update
+
+  apt-get -y -V install php7.1 php7.1-dev
+  apt-get -y -V install php7.1-cli php7.1-curl php7.1-soap php7.1-intl php7.1-sybase php7.1-apcu php7.1-curl php7.1-memcache php7.1-memcached php7.1-gd php7.1-ldap php7.1-imagick php7.1-mcrypt php7.1-mysqlnd php7.1-xdebug
+  apt-get -y -V install php-pear php-gettext phpunit
 }
 
 install_drush()
@@ -40,6 +51,6 @@ install_drush()
 CMDA=$(php -v 2>&1)
 if [[ $CMDA != *"PHP 7.0"* ]]
 then
-  install_php70
+  install_php71
   install_drush
 fi
