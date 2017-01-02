@@ -29,7 +29,7 @@ fi
 echo "Cloning remote provisioning"
 rm -Rf ~/provision
 # git clone https://github.com/pabloviquez/vagrant.git ~/provision
-git clone --branch 1.1.5 https://github.com/pabloviquez/vagrant.git ~/provision
+git clone --branch php71.0 https://github.com/pabloviquez/vagrant.git ~/provision
 
 if [ -d ~/provision ]; then
   echo "Setting up dependencies"
