@@ -489,11 +489,8 @@ install_drush()
   mv drush.phar /usr/local/bin/drush
 }
 
-CMDA=$(php -v 2>&1)
-if [[ $CMDA != *"PHP 7"* ]]
-then
-  install_php71_fpm
-  config_php71_fpm
-  install_drush
-  systemctl status php7.1-fpm
-fi
+
+install_php71_fpm
+config_php71_fpm
+install_drush
+systemctl status php7.1-fpm
