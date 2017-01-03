@@ -35,7 +35,7 @@ if [ -d ~/provision ]; then
   echo "Setting up dependencies"
   cd ~/provision
   source base/install.sh
-  source apache/install.sh
+  source nginx/install.sh
   source php/install.sh
   source mysql/install.sh
 else
