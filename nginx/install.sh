@@ -107,19 +107,14 @@ EOF
 }
 
 
-CMDA=$(nginx -v 2>&1)
-if [[ $CMDA != *"nginx version:"* ]]
-then
-    install_nginx
-    update_nginx_config
-    systemctl status nginx.service
+install_nginx
+update_nginx_config
+systemctl status nginx.service
 
-    echo ""
-    echo "----------------------------------------------------------------------"
-    echo "--"
-    echo "-- NGinx Setup Completed"
-    echo "--"
-    echo "----------------------------------------------------------------------"
-fi
-
+echo ""
+echo "----------------------------------------------------------------------"
+echo "--"
+echo "-- NGinx Setup Completed"
+echo "--"
+echo "----------------------------------------------------------------------"
 
