@@ -33,10 +33,10 @@ install_base_b()
   echo "----------------------------------------------------------------------"
 
   # Get config files
-  git clone git://github.com/pabloviquez/mydotfiles.git /home/vagrant/.mydotfiles
-  chown -R vagrant:vagrant /home/vagrant/.mydotfiles
-  cp /home/vagrant/.mydotfiles/.vimrc /home/vagrant/
-  cp /home/vagrant/.mydotfiles/.screenrc /home/vagrant/
+  git clone git://github.com/pabloviquez/mydotfiles.git /home/ubuntu/.mydotfiles
+  chown -R ubuntu:ubuntu /home/vagrant/.mydotfiles
+  cp /home/ubuntu/.mydotfiles/.vimrc /home/ubuntu/
+  cp /home/ubuntu/.mydotfiles/.screenrc /home/ubuntu/
 }
 
 install_locales()
