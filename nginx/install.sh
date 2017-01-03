@@ -79,7 +79,7 @@ EOF
 
 
 CMDA=$(nginx -v 2>&1)
-if [[ $CMDA != *"nginx"* ]]
+if [[ $CMDA != *"nginx version:"* ]]
 then
     install_nginx
     update_nginx_config
