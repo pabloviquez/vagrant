@@ -34,7 +34,7 @@ install_base_b()
 
   # Get config files
   git clone git://github.com/pabloviquez/mydotfiles.git /home/ubuntu/.mydotfiles
-  chown -R ubuntu:ubuntu /home/vagrant/.mydotfiles
+  chown -R ubuntu:ubuntu /home/ubuntu/.mydotfiles
   cp /home/ubuntu/.mydotfiles/.vimrc /home/ubuntu/
   cp /home/ubuntu/.mydotfiles/.screenrc /home/ubuntu/
 }
