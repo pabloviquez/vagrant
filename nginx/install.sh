@@ -15,7 +15,6 @@ install_nginx()
   apt-get -y -V install nginx
 }
 
-sed -i.bak 's/user ubuntu;/user www-user;/' nginx.conf 
 update_nginx_config()
 {
   echo "----------------------------------------------------------------------"
@@ -31,7 +30,7 @@ update_nginx_config()
   echo "--"
   echo "----------------------------------------------------------------------"
 
-  sed -i.bak 's/user ubuntu;/user www-user;/' nginx.conf 
+  sed -i.bak 's/user ubuntu;/user www-user;/' nginx.conf
 
   cat << EOF > /etc/nginx/sites-available/default01
 
