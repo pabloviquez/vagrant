@@ -12,7 +12,7 @@ echo "--"
 echo "-- Ubuntu Provision Script"
 echo "--"
 echo "-- @author Pablo Viquez <pviquez@pabloviquez.com>"
-echo "-- @version 2.1.0"
+echo "-- @version 2.1.1"
 echo "------------------------------------------------------------------------------"
 echo ""
 
