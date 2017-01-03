@@ -103,7 +103,7 @@ EOF
 
   chown -R ubuntu:ubuntu /var/www/html
 
-  sed -i.bak 's/user www-user;/user ubuntu;/' /etc/nginx/nginx.conf
+  sed -i.bak 's/user www-data;/user ubuntu;/' /etc/nginx/nginx.conf
 }
 
 
