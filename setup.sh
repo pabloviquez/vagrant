@@ -12,7 +12,7 @@ echo "--"
 echo "-- Ubuntu Provision Script"
 echo "--"
 echo "-- @author Pablo Viquez <pviquez@pabloviquez.com>"
-echo "-- @version 2.2.2"
+echo "-- @version 2.3.0"
 echo "------------------------------------------------------------------------------"
 echo ""
 
@@ -35,8 +35,8 @@ if [ -d ~/provision ]; then
   echo "Setting up dependencies"
   cd ~/provision
   source base/install.sh
-  source nginx/install.sh
   source php/install.sh
+  source nginx/install.sh
   source mysql/install.sh
 else
   echo "Unable to setup the machine. Provision directory not found"

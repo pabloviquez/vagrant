@@ -15,16 +15,23 @@ install_nginx()
   apt-get -y -V install nginx
 }
 
+sed -i.bak 's/user ubuntu;/user www-user;/' nginx.conf 
 update_nginx_config()
 {
   echo "----------------------------------------------------------------------"
   echo "--"
   echo "-- Changing NGINX deafault configuration to support PHP 7.1 FPM"
   echo "--"
-  echo "-- New config file: /etc/nginx/sites-available/default01"
+  echo "-- Config changes:"
   echo "--"
-  echo "-- Creating new PHP index page with PHP Info"
+  echo "--   1. Set NGINX user to be ubuntu"
+  echo "--   2. New config file: /etc/nginx/sites-available/default01"
+  echo "--   3. Creating new PHP index page with PHP Info"
+  echo "--   4. Changing owner of HTML directory to be ubuntu instead of root"
+  echo "--"
   echo "----------------------------------------------------------------------"
+
+  sed -i.bak 's/user ubuntu;/user www-user;/' nginx.conf 
 
   cat << EOF > /etc/nginx/sites-available/default01
 
@@ -44,7 +51,7 @@ server {
 
         location ~ \.php$ {
                 include snippets/fastcgi-php.conf;
-                fastcgi_pass unix:/run/php/php7.1-fpm.sock;
+                fastcgi_pass unix:/run/php/php7.1-fpm-vagrant.sock;
         }
 
         location ~ /\.ht {
@@ -61,12 +68,33 @@ EOF
   service nginx restart
   journalctl -n 4
 
-  cat << EOF > /var/www/html/index.php
-<h1>NGINX Page</h1>
-<p>Default page for the NGINX web server</p>
+  cat << 'EOF' > /var/www/html/index.php
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
 
 <pre><?php
-echo 'Current file: ' __FILE__;
+echo 'Current file: ' . __FILE__;
 echo "\n";
 echo 'Server Software: ' . $_SERVER['SERVER_SOFTWARE'];
 ?></pre>
@@ -75,6 +103,8 @@ echo 'Server Software: ' . $_SERVER['SERVER_SOFTWARE'];
 <?php phpinfo(); ?>
 
 EOF
+
+  chown -R ubuntu:ubuntu /var/www/html
 }
 
 
@@ -83,6 +113,7 @@ if [[ $CMDA != *"nginx version:"* ]]
 then
     install_nginx
     update_nginx_config
+    systemctl status nginx.service
 
     echo ""
     echo "----------------------------------------------------------------------"

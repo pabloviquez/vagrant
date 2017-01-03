@@ -58,13 +58,13 @@ config_php71_fpm()
   echo "--"
   echo "-- PHP 7.1 FPM Pool Configuration"
   echo "--"
-  echo "-- Will create a new pool to use the Vagrant user"
+  echo "-- Will create a new pool to use the Ubuntu user"
   echo "--"
   echo "-- Config the Webserver to use the pool: /run/php/php7.1-fpm-vagrant.sock"
   echo "----------------------------------------------------------------------"
 
-  cat << EOF > /etc/php/7.1/fpm/pool.d/vagrant.conf
-[vagrant]
+  cat << 'EOF' > /etc/php/7.1/fpm/pool.d/vagrant.conf
+[ubuntu]
 
 ; Per pool prefix
 ; It only applies on the following directives:
@@ -109,6 +109,7 @@ listen = /run/php/php7.1-fpm-vagrant.sock
 ;                 mode is set to 0660
 listen.owner = ubuntu
 listen.group = ubuntu
+
 ;listen.mode = 0660
 ; When POSIX Access Control Lists are supported you can set them using
 ; these options, value is a comma separated list of user/group names.
@@ -494,4 +495,5 @@ then
   install_php71_fpm
   config_php71_fpm
   install_drush
+  systemctl status php7.1-fpm
 fi
