@@ -29,14 +29,26 @@ install_php70()
   pear update-channels
 }
 
-install_php71()
+install_php71_fpm()
 {
   echo "Adding PHP 7.x Repository"
   add-apt-repository ppa:ondrej/php
   apt-get update
 
-  apt-get -y -V install php7.1 php7.1-dev
-  apt-get -y -V install php7.1-cli php7.1-curl php7.1-soap php7.1-intl php7.1-sybase php7.1-apcu php7.1-curl php7.1-memcache php7.1-memcached php7.1-gd php7.1-ldap php7.1-imagick php7.1-mcrypt php7.1-mysqlnd php7.1-xdebug
+  echo "----------------------------------------------------------------------"
+  echo "--"
+  echo "-- Installing PHP 7.1.x"
+  echo "--"
+  echo "----------------------------------------------------------------------"
+  apt-get -y -V install php7.1-fpm php7.1-common php7.1-json php7.1-opcache php7.1-cli
+  apt-get -y -V install php7.1-dev php7.1-xml
+  apt-get -y -V install php7.1-bcmath php7.1-pspell php7.1-readline
+  apt-get -y -V install php7.1-imagick php7.1-gd
+  apt-get -y -V install php7.1-curl php7.1-intl php7.1-json php7.1-soap php7.1-tidy
+  apt-get -y -V install php7.1-ldap php7.1-mbstring php7.1-mcrypt php7.1-bz2 php7.1-zip
+  apt-get -y -V install php7.1-dba php7.1-interbase php7.1-mysql php7.1-odbc php7.1-pgsql php7.1-sqlite3 php7.1-sybase
+  apt-get -y -V install php-memcached php-memcache php-nrk-predis
+  apt-get -y -V install php-xdebug
   apt-get -y -V install php-pear php-gettext phpunit
 }
 
@@ -49,8 +61,8 @@ install_drush()
 }
 
 CMDA=$(php -v 2>&1)
-if [[ $CMDA != *"PHP 7.0"* ]]
+if [[ $CMDA != *"PHP 7"* ]]
 then
-  install_php71
+  install_php71_fpm
   install_drush
 fi
