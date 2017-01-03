@@ -23,6 +23,7 @@ update_nginx_config()
   echo "--"
   echo "-- New config file: /etc/nginx/sites-available/default01"
   echo "--"
+  echo "-- Creating new PHP index page with PHP Info"
   echo "----------------------------------------------------------------------"
 
   cat << EOF > /etc/nginx/sites-available/default01
@@ -33,7 +34,7 @@ server {
 
         root /var/www/html;
 
-        index index.html index.php
+        index index.php
 
         server_name _;
 
@@ -59,11 +60,26 @@ EOF
 
   service nginx restart
   journalctl -n 4
+
+  cat << EOF > /var/www/html/index.php
+<h1>NGINX Page</h1>
+<p>Default page for the NGINX web server</p>
+
+<pre><?php
+echo 'Current file: ' __FILE__;
+echo "\n";
+echo 'Server Software: ' . $_SERVER['SERVER_SOFTWARE'];
+?></pre>
+
+<hr>
+<?php phpinfo(); ?>
+
+EOF
 }
 
 
 CMDA=$(nginx -v 2>&1)
-if [[ $CMDA != *"Apache server"* ]]
+if [[ $CMDA != *"nginx"* ]]
 then
     install_nginx
     update_nginx_config
