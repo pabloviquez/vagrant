@@ -493,6 +493,8 @@ install_drush()
 install_php71_fpm
 config_php71_fpm
 install_drush
+service php7.1-fpm restart
+journalctl -n 4
 systemctl status php7.1-fpm
 
 echo "----------------------------------------------------------------------"

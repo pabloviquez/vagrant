@@ -30,8 +30,6 @@ update_nginx_config()
   echo "--"
   echo "----------------------------------------------------------------------"
 
-  sed -i.bak 's/user ubuntu;/user www-user;/' nginx.conf
-
   cat << EOF > /etc/nginx/sites-available/default01
 
 server {
@@ -104,6 +102,8 @@ echo 'Server Software: ' . $_SERVER['SERVER_SOFTWARE'];
 EOF
 
   chown -R ubuntu:ubuntu /var/www/html
+
+  sed -i.bak 's/user www-user;/user ubuntu;/' /etc/nginx/nginx.conf
 }
 
 
@@ -117,4 +117,4 @@ echo "--"
 echo "-- NGinx Setup Completed"
 echo "--"
 echo "----------------------------------------------------------------------"
-
+echo ""
