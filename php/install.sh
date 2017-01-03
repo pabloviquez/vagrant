@@ -492,6 +492,6 @@ CMDA=$(php -v 2>&1)
 if [[ $CMDA != *"PHP 7"* ]]
 then
   install_php71_fpm
-  php7x_xenial
+  config_php71_fpm
   install_drush
 fi
