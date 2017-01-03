@@ -56,9 +56,9 @@ config_php71_fpm()
 {
   echo "----------------------------------------------------------------------"
   echo "--"
-  echo "-- PHP 7.1 FPM Pool Configuration"
+  echo "-- PHP 7.1 FPM Configuration"
   echo "--"
-  echo "-- Will create a new pool to use the Ubuntu user"
+  echo "--   1. New pool for PHP FPM with Ubuntu user"
   echo "--"
   echo "-- Config the Webserver to use the pool: /run/php/php7.1-fpm-vagrant.sock"
   echo "----------------------------------------------------------------------"
@@ -494,3 +494,10 @@ install_php71_fpm
 config_php71_fpm
 install_drush
 systemctl status php7.1-fpm
+
+echo "----------------------------------------------------------------------"
+echo "--"
+echo "-- PHP 7.1.x Setup Completed"
+echo "--"
+echo "----------------------------------------------------------------------"
+echo ""
