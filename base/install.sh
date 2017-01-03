@@ -21,6 +21,7 @@ install_base_a()
   apt-get install -y -V openssl
   apt-get install -y -V openjdk-6-jdk
   apt-get install -y -V memcached
+  apt-get install -y -V openssl-blacklist
 }
 
 install_base_b()
@@ -40,14 +41,16 @@ install_base_b()
 
 install_locales()
 {
+  echo "----------------------------------------------------------------------"
+  echo "--"
+  echo "-- Setting Locale to UTF-8"
+  echo "--"
+  echo "----------------------------------------------------------------------"
+
   export LC_ALL="en_US.UTF-8"
   locale-gen --purge en_US en_US.UTF-8
 }
 
-CMDA=$(screen -v 2>&1)
-if [[ $CMDA != *"Screen version"* ]]
-then
-  install_locales
-  install_base_a
-  install_base_b
-fi
+install_locales
+install_base_a
+install_base_b

@@ -7,7 +7,7 @@ install_nginx()
 {
   echo "----------------------------------------------------------------------"
   echo "--"
-  echo "-- Installing NGinx"
+  echo "-- Installing NGINX"
   echo "--"
   echo "----------------------------------------------------------------------"
 
@@ -17,6 +17,14 @@ install_nginx()
 
 update_nginx_config()
 {
+  echo "----------------------------------------------------------------------"
+  echo "--"
+  echo "-- Changing NGINX deafault configuration to support PHP 7.1 FPM"
+  echo "--"
+  echo "-- New config file: /etc/nginx/sites-available/default01"
+  echo "--"
+  echo "----------------------------------------------------------------------"
+
   cat << EOF > /etc/nginx/sites-available/default01
 
 server {
@@ -54,11 +62,13 @@ EOF
 }
 
 
-if [[ $CMDA != *""* ]]
+CMDA=$(nginx -v 2>&1)
+if [[ $CMDA != *"Apache server"* ]]
 then
     install_nginx
     update_nginx_config
 
+    echo ""
     echo "----------------------------------------------------------------------"
     echo "--"
     echo "-- NGinx Setup Completed"
