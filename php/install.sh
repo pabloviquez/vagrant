@@ -83,8 +83,8 @@ config_php71_fpm()
 ; Unix user/group of processes
 ; Note: The user is mandatory. If the group is not set, the default user's group
 ;       will be used.
-user = vagrant
-group = vagrant
+user = ubuntu
+group = ubuntu
 
 ; The address on which to accept FastCGI requests.
 ; Valid syntaxes are:
@@ -107,8 +107,8 @@ listen = /run/php/php7.1-fpm-vagrant.sock
 ; BSD-derived systems allow connections regardless of permissions.
 ; Default Values: user and group are set as the running user
 ;                 mode is set to 0660
-listen.owner = vagrant
-listen.group = vagrant
+listen.owner = ubuntu
+listen.group = ubuntu
 ;listen.mode = 0660
 ; When POSIX Access Control Lists are supported you can set them using
 ; these options, value is a comma separated list of user/group names.
