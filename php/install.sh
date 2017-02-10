@@ -12,7 +12,7 @@ install_php56()
   apt-get -y -V install php5
   apt-get -y -V install php5-dev
   apt-get -y -V install php5-cli php-pear php5-intl php5-sybase php5-apcu php5-curl php5-memcache php5-memcached php-gettext php5-gd php5-ldap php5-imagick php5-mcrypt php5-mysqlnd phpunit php5-xdebug
-
+  apt-get -y -V install composer
   pear update-channels
 }
 
@@ -26,7 +26,7 @@ install_php70()
   apt-get -y -V install php7.0-dev
   apt-get -y -V install php7.0-cli php7.0-curl php7.0-soap php-pear php7.0-intl php7.0-sybase php7.0-apcu php7.0-curl php7.0-memcache php7.0-memcached php-gettext php7.0-gd php7.0-ldap php7.0-imagick php7.0-mcrypt php7.0-mysqlnd phpunit php7.0-xdebug
   apt-get -y -V install php-xml
-
+  apt-get -y -V install composer
   pear update-channels
 }
 
@@ -52,6 +52,7 @@ install_php71_fpm()
   apt-get -y -V install php-xdebug
   apt-get -y -V install php-pear php-gettext phpunit
   apt-get -y -V install php-xml
+  apt-get -y -V install composer
 }
 
 config_php71_fpm()
@@ -491,10 +492,17 @@ install_drush()
   mv drush.phar /usr/local/bin/drush
 }
 
+install_php_symfony()
+{
+  mkdir -p /usr/local/bin
+  curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
+  chmod a+x /usr/local/bin/symfony
+}
 
 install_php71_fpm
 config_php71_fpm
 install_drush
+install_php_symfony
 service php7.1-fpm restart
 journalctl -n 4
 systemctl status php7.1-fpm

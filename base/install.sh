@@ -23,6 +23,7 @@ install_base_a()
   apt-get install -y -V openjdk-6-jdk
   apt-get install -y -V memcached
   apt-get install -y -V openssl-blacklist
+  apt-get install -y -V dialog
 }
 
 install_base_b()
