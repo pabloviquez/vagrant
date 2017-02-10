@@ -53,6 +53,12 @@ install_locales()
   locale-gen --purge en_US en_US.UTF-8
 }
 
+change_ubuntu_password()
+{
+  echo 'ubuntu:ubuntu'|chpasswd
+}
+
 install_locales
 install_base_a
 install_base_b
+change_ubuntu_password
