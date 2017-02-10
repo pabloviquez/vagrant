@@ -25,6 +25,7 @@ install_php70()
   apt-get -y -V install php7.0
   apt-get -y -V install php7.0-dev
   apt-get -y -V install php7.0-cli php7.0-curl php7.0-soap php-pear php7.0-intl php7.0-sybase php7.0-apcu php7.0-curl php7.0-memcache php7.0-memcached php-gettext php7.0-gd php7.0-ldap php7.0-imagick php7.0-mcrypt php7.0-mysqlnd phpunit php7.0-xdebug
+  apt-get -y -V install php-xml
 
   pear update-channels
 }
@@ -50,6 +51,7 @@ install_php71_fpm()
   apt-get -y -V install php-memcached php-memcache php-nrk-predis
   apt-get -y -V install php-xdebug
   apt-get -y -V install php-pear php-gettext phpunit
+  apt-get -y -V install php-xml
 }
 
 config_php71_fpm()
