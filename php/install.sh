@@ -506,10 +506,9 @@ install_php_symfony()
   curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
   chmod a+x /usr/local/bin/symfony
   ls -l /usr/local/bin/symfony
-  /usr/local/bin/symfony
 }
 
-install phpunit()
+install install_phpunit()
 {
   echo "----------------------------------------------------------------------"
   echo "--"
@@ -526,7 +525,7 @@ install_php71_fpm
 config_php71_fpm
 install_drush
 install_php_symfony
-phpunit
+install_phpunit
 service php7.1-fpm restart
 journalctl -n 4
 systemctl status php7.1-fpm
