@@ -489,6 +489,11 @@ EOF
 
 install_drush()
 {
+  echo "----------------------------------------------------------------------"
+  echo "--"
+  echo "-- Installing Drush"
+  echo "--"
+  echo "----------------------------------------------------------------------"
   wget http://files.drush.org/drush.phar
   php drush.phar core-status
   chmod +x drush.phar
@@ -508,7 +513,7 @@ install_php_symfony()
   ls -l /usr/local/bin/symfony
 }
 
-install install_phpunit()
+install_phpunit()
 {
   echo "----------------------------------------------------------------------"
   echo "--"
