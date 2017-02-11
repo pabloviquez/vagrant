@@ -19,7 +19,7 @@ install_php56()
 install_php70()
 {
   echo "Adding PHP 7.x Repository"
-  add-apt-repository ppa:ondrej/php
+  LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
   apt-get update
 
   apt-get -y -V install php7.0
@@ -32,15 +32,18 @@ install_php70()
 
 install_php71_fpm()
 {
-  echo "Adding PHP 7.x Repository"
-  add-apt-repository ppa:ondrej/php
-  apt-get update
-
   echo "----------------------------------------------------------------------"
   echo "--"
   echo "-- Installing PHP 7.1.x"
   echo "--"
   echo "----------------------------------------------------------------------"
+
+  echo "Adding PHP 7.x Repository"
+  # add-apt-repository ppa:ondrej/php
+  LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
+  apt-get update
+
+  echo "Installing all required components"
   apt-get -y -V install php7.1-fpm php7.1-common php7.1-json php7.1-opcache php7.1-cli
   apt-get -y -V install php7.1-dev php7.1-xml
   apt-get -y -V install php7.1-bcmath php7.1-pspell php7.1-readline
@@ -494,18 +497,29 @@ install_drush()
 
 install_php_symfony()
 {
+  echo "----------------------------------------------------------------------"
+  echo "--"
+  echo "-- Installing Symfony Installer"
+  echo "--"
+  echo "----------------------------------------------------------------------"
   mkdir -p /usr/local/bin
   curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
   chmod a+x /usr/local/bin/symfony
+  ls -l /usr/local/bin/symfony
+  /usr/local/bin/symfony
 }
 
 install phpunit()
 {
-    echo "Installing latest version of PHPUnit"
-    wget https://phar.phpunit.de/phpunit.phar
-    chmod +x phpunit.phar
-    mv phpunit.phar /usr/local/bin/phpunit
-    phpunit --version
+  echo "----------------------------------------------------------------------"
+  echo "--"
+  echo "-- Installing PHPUnit"
+  echo "--"
+  echo "----------------------------------------------------------------------"
+  wget https://phar.phpunit.de/phpunit.phar
+  chmod +x phpunit.phar
+  mv phpunit.phar /usr/local/bin/phpunit
+  phpunit --version
 }
 
 install_php71_fpm
