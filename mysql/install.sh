@@ -24,7 +24,7 @@ install_mysql57()
   export DEBIAN_FRONTEND=noninteractive
   wget https://dev.mysql.com/get/mysql-apt-config_0.8.5-1_all.deb
   # dpkg -i mysql-apt-config_0.7.3-1_all.deb
-  dpkg --install mysql-apt-config_0.7.3-1_all.deb
+  dpkg --install mysql-apt-config_0.8.5-1_all.deb
   apt-get update
 
   # Set default password
