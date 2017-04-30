@@ -58,7 +58,23 @@ change_ubuntu_password()
   echo 'ubuntu:ubuntu'|chpasswd
 }
 
+setup_bash_config_file()
+{
+  echo "----------------------------------------------------------------------"
+  echo "--"
+  echo "-- Setup Bash Config file"
+  echo "--"
+  echo "----------------------------------------------------------------------"
+
+  echo "" > /home/ubuntu/.bash_profile
+  echo "#!/bin/bash" && \
+  echo "" && \
+  echo "export APPLICATION_ENV='vagrant'" >> /home/ubuntu/.bash_profile
+  echo "export SYMFONY_ENV='vagrant'" >> /home/ubuntu/.bash_profile
+}
+
 install_locales
 install_base_a
 install_base_b
 change_ubuntu_password
+setup_bash_config_file

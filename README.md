@@ -6,7 +6,7 @@ Add the RAW setup script to the Vagrantfile as provision
 
 ```
 Vagrant.configure("2") do |config|
-  config.vm.provision "shell", path: "https://raw.githubusercontent.com/pabloviquez/vagrant/1.1.5/setup.sh"
+  config.vm.provision "shell", path: "https://raw.githubusercontent.com/pabloviquez/vagrant/php7x_xenial/setup.sh"
 end
 ```
 
@@ -28,13 +28,12 @@ Simple, I created this repository to have a simple provisioning standard setup s
 	<li>ldap-utils</li>
 	<li>python-software-properties</li>
 	<li>subversion</li>
-	<li>openjdk-6-jdk</li>
 </ul>
 
 <h3>Utility &amp; Development</h3>
 <ul>
-	<li>Apache 2.4.x</li>
-	<li>PHP 5.6.x</li>
+	<li>NGinx</li>
+	<li>PHP 7.1.x</li>
 	<ul>
 		<li>Dev</li>
 		<li>CLI</li>
@@ -52,7 +51,7 @@ Simple, I created this repository to have a simple provisioning standard setup s
 	</ul>
 	<li>PEAR</li>
 	<li>Drush</li>
-	<li>MySQL 5.6.x</li>
+	<li>MySQL 5.7.x</li>
 	<ul>
 		<li>Default Password: <strong>123456</strong></li>
 		<li>Set default connection &amp; database charset: <strong>UTF-8</strong><br><pre>/etc/mysql/conf.d/utf8.cnf</pre></li>

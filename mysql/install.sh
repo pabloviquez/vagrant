@@ -103,6 +103,18 @@ install_configfiles()
   service mysql restart
 }
 
+disable_localbinding()
+{
+  sed -i  's/bind/#bind/' /etc/mysql/mysql.conf.d/mysqld.cnf
+}
+
+mysql_enable_rootaccess()
+{
+    mysql -uroot -p123456 -h127.0.0.1 -e "UPDATE mysql.user SET host = '%' WHERE user='root'; FLUSH PRIVILEGES;"
+    mysql -uroot -p123456 -h127.0.0.1 -e "SELECT user, host FROM mysql.user WHERE user='root'"
+    service mysql restart
+}
+
 CMDA=$(mysql --help 2>&1)
 if [[ $CMDA != *"Distrib 5.7"* ]]
 then
