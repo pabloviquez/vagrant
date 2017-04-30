@@ -11,6 +11,9 @@ install_mysql57()
   echo "--"
   echo "--"
   echo "-- Default password: 123456"
+  echo "--"
+  echo "-- DEB Package: mysql-apt-config_0.8.5-1_all.deb"
+  echo "--"
   echo "----------------------------------------------------------------------"
   echo ""
 
@@ -35,7 +38,7 @@ install_mysql57()
   debconf-set-selections <<< 'mysql-community-server mysql-community-server/re-root-pass password 123456'
 
   #apt-get -y -V install mysql-server mysql-client --allow-unauthenticated
-  apt-get -y -V install mysql-server mysql-client --allow-unauthenticated
+  apt-get -y -V install mysql-server mysql-client
 }
 
 install_mysql56()
@@ -121,4 +124,6 @@ if [[ $CMDA != *"Distrib 5.7"* ]]
 then
   install_mysql57
   install_configfiles
+  disable_localbinding
+  mysql_enable_rootaccess
 fi
