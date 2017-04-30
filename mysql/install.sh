@@ -22,7 +22,7 @@ install_mysql57()
   debconf-set-selections <<< 'mysql-apt-config mysql-apt-config/select-product select Apply'
 
   export DEBIAN_FRONTEND=noninteractive
-  wget http://dev.mysql.com/get/mysql-apt-config_0.7.3-1_all.deb
+  wget https://dev.mysql.com/get/mysql-apt-config_0.8.5-1_all.deb
   # dpkg -i mysql-apt-config_0.7.3-1_all.deb
   dpkg --install mysql-apt-config_0.7.3-1_all.deb
   apt-get update
@@ -34,7 +34,8 @@ install_mysql57()
   debconf-set-selections <<< 'mysql-community-server mysql-community-server/root-pass password 123456'
   debconf-set-selections <<< 'mysql-community-server mysql-community-server/re-root-pass password 123456'
 
-  apt-get -y -V install mysql-server mysql-client
+  #apt-get -y -V install mysql-server mysql-client --allow-unauthenticated
+  apt-get -y -V install mysql-server mysql-client --allow-unauthenticated
 }
 
 install_mysql56()
