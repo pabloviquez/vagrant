@@ -15,10 +15,18 @@ install_php56()
   add-apt-repository ppa:ondrej/php
   apt-get update
 
-  apt-get -y -V install php5
-  apt-get -y -V install php5-dev
-  apt-get -y -V install php5-cli php-pear php5-intl php5-sybase php5-apcu php5-curl php5-memcache php5-memcached php-gettext php5-gd php5-ldap php5-imagick php5-mcrypt php5-mysqlnd php5-xdebug
-  apt-get -y -V install composer
+<<<<<<< Updated upstream
+  apt-get -y -V install php5.6
+  apt-get -y -V install php5.6-dev
+
+  apt-get -y -V install php5-cli php-pear
+  apt-get -y -V install php5-intl php5-curl php-gettext
+  apt-get -y -V install php5-gd php5-imagick
+  apt-get -y -V install php5-ldap php5-mcrypt
+  apt-get -y -V install php5-sybase php5-mysqlnd
+  apt-get -y -V install php5-apcu php5-memcache php5-memcached
+  apt-get -y -V install phpunit php5-xdebug
+
   pear update-channels
 }
 
@@ -32,7 +40,6 @@ install_php70()
   apt-get -y -V install php7.0-dev
   apt-get -y -V install php7.0-cli php7.0-curl php7.0-soap php-pear php7.0-intl php7.0-sybase php7.0-apcu php7.0-curl php7.0-memcache php7.0-memcached php-gettext php7.0-gd php7.0-ldap php7.0-imagick php7.0-mcrypt php7.0-mysqlnd php7.0-xdebug
   apt-get -y -V install php-xml
-  apt-get -y -V install composer
   pear update-channels
 }
 
@@ -532,10 +539,50 @@ install_phpunit()
   phpunit --version
 }
 
+
+install_drupalconsole()
+{
+    echo "----------------------------------------------------------------------"
+    echo "--"
+    echo "-- Installing Drupal Console"
+    echo "--"
+    echo "----------------------------------------------------------------------"
+    curl https://drupalconsole.com/installer -L -o drupal.phar
+    mv drupal.phar /usr/local/bin/drupal
+    chmod +x /usr/local/bin/drupal
+}
+
+install_composer()
+{
+  echo "----------------------------------------------------------------------"
+  echo "--"
+  echo "-- Installing Composer"
+  echo "--"
+  echo "----------------------------------------------------------------------"
+  EXPECTED_SIGNATURE=$(wget -q -O - https://composer.github.io/installer.sig)
+  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+  ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
+
+  if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]
+  then
+    >&2 echo 'ERROR: Unable to install Composer'
+    >&2 echo 'ERROR: Invalid installer signature'
+    rm composer-setup.php
+  fi
+
+  php composer-setup.php --install-dir=/usr/bin --filename=composer
+  rm composer-setup.php
+
+  echo -n "Composer installed. "
+  composer -V
+}
+
 install_php56
 install_drush
+install_drupalconsole
 install_php_symfony
 install_phpunit
+install_composer
 
 echo "----------------------------------------------------------------------"
 echo "--"
