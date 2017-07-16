@@ -5,6 +5,12 @@
 
 install_php56()
 {
+  echo "----------------------------------------------------------------------"
+  echo "--"
+  echo "-- Installing PHP 5.6.x"
+  echo "--"
+  echo "----------------------------------------------------------------------"
+
   echo "Adding PHP 5.6 Repository"
   add-apt-repository ppa:ondrej/php
   apt-get update
@@ -526,18 +532,14 @@ install_phpunit()
   phpunit --version
 }
 
-install_php71_fpm
-config_php71_fpm
+install_php56
 install_drush
 install_php_symfony
 install_phpunit
-service php7.1-fpm restart
-journalctl -n 4
-systemctl status php7.1-fpm
 
 echo "----------------------------------------------------------------------"
 echo "--"
-echo "-- PHP 7.1.x Setup Completed"
+echo "-- PHP 5.6.x Setup Completed"
 echo "--"
 echo "----------------------------------------------------------------------"
 echo ""

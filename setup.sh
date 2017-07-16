@@ -36,7 +36,7 @@ if [ -d ~/provision ]; then
   cd ~/provision
   source base/install.sh
   source php/install.sh
-  source nginx/install.sh
+  source apache/install.sh
   source mysql/install.sh
 else
   echo "Unable to setup the machine. Provision directory not found"
