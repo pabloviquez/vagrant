@@ -15,17 +15,20 @@ install_php56()
   add-apt-repository ppa:ondrej/php
   apt-get update
 
-<<<<<<< Updated upstream
   apt-get -y -V install php5.6
   apt-get -y -V install php5.6-dev
 
-  apt-get -y -V install php5-cli php-pear
-  apt-get -y -V install php5-intl php5-curl php-gettext
-  apt-get -y -V install php5-gd php5-imagick
-  apt-get -y -V install php5-ldap php5-mcrypt
-  apt-get -y -V install php5-sybase php5-mysqlnd
-  apt-get -y -V install php5-apcu php5-memcache php5-memcached
-  apt-get -y -V install phpunit php5-xdebug
+  apt-get -y -V install php5.6-cli php-pear
+  apt-get -y -V install php5.6-pspell php5.6-readline
+  apt-get -y -V install php5.6-intl php-gettext php5.6-bcmath
+  apt-get -y -V install php5.6-soap php5.6-curl php5.6-xmlrpc php5.6-xml php5.6-json php5.6-tidy
+  apt-get -y -V install php5.6-gd php-imagick
+  apt-get -y -V install php5.6-ldap php5.6-mcrypt php5.6-mbstring
+  apt-get -y -V install php5.6-bz2 php5.6-zip
+  apt-get -y -V install php5.6-dba php5.6-sybase php5.6-interbase php5.6-odbc php5.6-pgsql php5.6-sqlite3 php5.6-mysql php-mysqlnd-ms
+  apt-get -y -V install php-apcu php-memcache php-memcached php5.6-opcache php-nrk-predis
+  apt-get -y -V install phpunit
+  apt-get -y -V install php-xdebug
 
   pear update-channels
 }
@@ -68,7 +71,6 @@ install_php71_fpm()
   apt-get -y -V install php-xdebug
   apt-get -y -V install php-pear php-gettext
   apt-get -y -V install php-xml
-  apt-get -y -V install composer
 }
 
 config_php71_fpm()
