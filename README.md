@@ -1,12 +1,16 @@
-<h1>Vagrant Ubuntu Provision File</h1>
+<h1>Vagrant Ubuntu Provision File for Xenial</h1>
 
 <h2>Install</h2>
 
 Add the RAW setup script to the Vagrantfile as provision
 
 ```
-Vagrant.configure("2") do |config|
-  config.vm.provision "shell", path: "https://raw.githubusercontent.com/pabloviquez/vagrant/php7x_xenial/setup.sh"
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "ubuntu/xenial64"
+
+  config.vm.provision "shell", path: "https://raw.githubusercontent.com/pabloviquez/vagrant/php56_apache_xenial/setup.sh"
 end
 ```
 
@@ -32,8 +36,8 @@ Simple, I created this repository to have a simple provisioning standard setup s
 
 <h3>Utility &amp; Development</h3>
 <ul>
-	<li>NGinx</li>
-	<li>PHP 7.1.x</li>
+	<li>Apache 2.4.x</li>
+	<li>PHP 5.6.x</li>
 	<ul>
 		<li>Dev</li>
 		<li>CLI</li>
