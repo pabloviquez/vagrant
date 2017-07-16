@@ -39,6 +39,7 @@ install_mysql57()
 
   #apt-get -y -V install mysql-server mysql-client --allow-unauthenticated
   apt-get -y -V install mysql-server mysql-client
+  rm mysql-apt-config_0.8.5-1_all.deb
 }
 
 install_mysql56()

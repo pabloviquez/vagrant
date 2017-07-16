@@ -579,6 +579,13 @@ install_composer()
   composer -V
 }
 
+echo "----------------------------------------------------------------------"
+echo "--"
+echo "-- PHP 5.6.x Setup Initiating"
+echo "--"
+echo "----------------------------------------------------------------------"
+echo ""
+
 install_php56
 install_drush
 install_drupalconsole
