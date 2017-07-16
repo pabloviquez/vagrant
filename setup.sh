@@ -7,12 +7,30 @@
 # -- https://raw.githubusercontent.com/pabloviquez/vagrant/master/setup.sh
 # -----------------------------------------------------------------------------
 
+AVAILABLE_BRANCH=(
+  "php56_apache_xenial"
+  "php7x_xenial"
+)
+
+VERSION="2.3.8"
+TARGET_OS="xenial"
+TARGET_PHP="5.6"
+TARGET_HTTP_SERVER="Apache 2.4"
+TARGET_BRANCH=${AVAILABLE_BRANCH[0]}
+
 echo "------------------------------------------------------------------------------"
 echo "--"
 echo "-- Ubuntu Provision Script"
 echo "--"
+echo "-- Specs:"
+echo "--     OS         : ${TARGET_OS}"
+echo "--     PHP        : ${TARGET_PHP}"
+echo "--     Web Server : ${TARGET_HTTP_SERVER}"
+echo "--"
+echo "-- Repo Branch: ${TARGET_BRANCH}"
+echo "--"
 echo "-- @author Pablo Viquez <pviquez@pabloviquez.com>"
-echo "-- @version 2.3.6"
+echo "-- @version ${VERSION}"
 echo "------------------------------------------------------------------------------"
 echo ""
 
@@ -29,7 +47,7 @@ fi
 echo "Cloning remote provisioning"
 rm -Rf ~/provision
 # git clone https://github.com/pabloviquez/vagrant.git ~/provision
-git clone --branch php7x_xenial https://github.com/pabloviquez/vagrant.git ~/provision
+git clone --branch ${TARGET_BRANCH} https://github.com/pabloviquez/vagrant.git ~/provision
 
 if [ -d ~/provision ]; then
   echo "Setting up dependencies"
